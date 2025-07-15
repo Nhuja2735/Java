@@ -1,34 +1,18 @@
-abstract class Shape {
-    abstract void draw();
-}
-
-class Circle extends Shape {
-    @Override
-    void draw() {
-        System.out.println("Drawing a circle");
+class Box<T> {
+    private T content;
+    public void setContent(T content) {
+        this.content = content;
     }
-}
-
-class Rectangle extends Shape {
-    @Override
-    void draw() {
-        System.out.println("Drawing a rectangle");
-    }
-}
-
-class Triangle extends Shape {
-    @Override
-    void draw() {
-        System.out.println("Drawing a triangle");
+    public T getContent() {
+        return content;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        // Demonstrate polymorphism with all shapes
-        Shape[] shapes = { new Circle(), new Rectangle(), new Triangle() };
-        for (Shape shape : shapes) {
-            shape.draw();
-        }
+        Box<String> stringBox = new Box<>();
+        stringBox.setContent("Hello");
+        Box<Integer> intBox = new Box<>();
+        intBox.setContent(100);
     }
 }
